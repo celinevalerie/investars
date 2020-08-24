@@ -1,2 +1,70 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <a class="navbar-brand" href="#">
+    <%= image_tag("logo") %>
+</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Investors</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Startups</a>
+      </li>
+      <li class="nav-item dropdown">
+        <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="header">
+  <%= image_tag ("header.png") %>
+</div>
+
+<div class="container">
+
+  <h2 class="title">Investar</h2>
+  <h4 class="subtitle">Your  plattform for exclusive investment opportunities</h4>
+
+  <div class="valueprops">
+    <div>
+      <%= image_tag ("head_icon"), style: "width: 140px; height: 120px; margin: 20px;" %>
+      <h4>Screen</h4>
+      <p>Find the perfect business opportunity</p>
+    </div>
+    <div>
+      <%= image_tag ("connect_icon"), style: "width: 140px; height: 120px; margin: 20px;" %>
+      <h4>Match</h4>
+      <p>Find the perfect business opportunity</p>
+    </div>
+    <div>
+      <%= image_tag ("plant_icon"), style: "width: 180px; height: 120px; margin: 20px;" %>
+      <h4>Earn</h4>
+      <p>Find the perfect business opportunity</p>
+    </div>
+  </div>
+
+  <div class="button">
+    <p>Sign in</p>
+  </div>
+
+</div>
+
+<div class="footer">
+  <div>
+    <p>Investars. All rights reserved.</p>
+  </div>
+  <div>
+    <i class="fab fa-facebook-square"></i>
+    <i class="fab fa-linkedin"></i>
+  </div>
+</div>
