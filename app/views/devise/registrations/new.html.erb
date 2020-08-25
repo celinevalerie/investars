@@ -1,6 +1,6 @@
 <body>
 <div class="container-small">
-<h2>Sign up</h2>
+<h2 class="form-title">Sign up</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
@@ -25,6 +25,8 @@
     <%= f.input :description,
                 required: true %>
     <%= f.input :industry,
+                required: true %>
+    <%= f.input :url,
                 required: true %>
     <%= f.input :photo, as: :file %>
   </div>

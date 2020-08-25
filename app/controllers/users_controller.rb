@@ -22,6 +22,14 @@ class UsersController < ApplicationController
     @investors = User.where("role = 'investor'")
   end
 
+  def startups
+    @startups = User.where("role = 'startup'")
+  end
+
+  def investors
+    @investors = User.where("role = 'investor'")
+  end
+
   private
 
   def set_user

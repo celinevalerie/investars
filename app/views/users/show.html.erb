@@ -1,6 +1,10 @@
+<h2 class="page-title">Profile</h2>
+
 <div class="profile">
   <div>
-    <%= cl_image_tag @user.photo.key, height: 200, width: 200, crop: :fill, style: "border-radius: 200px; margin: 30px 50px;" %>
+    <% if @user.photo.present? %>
+      <%= cl_image_tag @user.photo.key, height: 200, width: 200, crop: :fill, style: "border-radius: 200px; margin: 30px 50px;" %>
+    <% end %>
     <div style="width: 300px; margin: 0px 0px 0px 55px;">
       <div style="text-decoration: none">
         <ul style="list-style-type: none; padding: 0px;">

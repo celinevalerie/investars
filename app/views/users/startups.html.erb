@@ -1,0 +1,28 @@
+<h2 class="page-title">Startups</h2>
+
+<% @startups.each do |startup| %>
+<div class="card mt-3 mb-5 ml-3 mr-3" style="max-width: 2000px;">
+  <div class="row no-gutters d-flex align-tiems-center">
+    <div class="col-md-3">
+      <% if startup.photo.present? %>
+        <%= cl_image_tag startup.photo.key, :class => "card-img" %>
+      <% end %>
+    </div>
+    <div class="col-md-6">
+      <div class="card-body">
+        <h5 class="card-title"><%= startup.name %></h5>
+        <p class="industrycard"><strong><%= startup.industry %></strong></p>
+        <p class="card-text"><%= startup.description %></p>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="button">
+        <%= link_to "Edit", edit_user_path(startup) %>
+      </div>
+      <div class="button">
+        <%= link_to "Startup Profile", user_path(startup) %>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
