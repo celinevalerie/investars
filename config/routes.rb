@@ -2,13 +2,13 @@ Rails.application.routes.draw do
   get 'users/index'
   get 'funding_rounds/interested'
   root to: 'pages#home'
-  resources :funding_rounds, only: [:index] do
-    member do
-      post 'interested'
-    end
-  end
+  resources :funding_rounds, only: [:index]
+  
   resources :users, only: [:show, :edit, :update, :index] do
     resources :funding_rounds, only: [:new, :create, :index] do
+      member do
+        post 'interested'
+      end
       resources :investments, only: [:index]
     end
   end

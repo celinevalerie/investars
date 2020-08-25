@@ -13,13 +13,14 @@ class FundingRoundsController < ApplicationController
   end
 
   def interested
-    set_funding_round
-    if @funding_round.interested == true
-      @funding_round.interested = false
-    else
-      @funding_round.interested = true
-    end
+    session[:return_to] ||= request.referer
+
+    @investment = Investment.new(user_id: current_user.id, funding_round_id:params[:id], interested: true)
+    @investment.save
+
+    redirect_to session.delete(:return_to)
   end
+
 
   private
 

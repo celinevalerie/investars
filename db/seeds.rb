@@ -52,6 +52,4 @@ user = User.new(name: name, url: url, description: description, industry: indust
   user.password_confirmation = 'valid_password'
 user.save
 id += 1
-  investment = Investment.new(user: user, funding_round: FundingRound.all[rand(1..5)], interested: false)
-  investment.save
 end

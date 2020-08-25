@@ -1,2 +1,31 @@
-<h1>FundingRounds#index</h1>
-<p>Find me in app/views/funding_rounds/index.html.erb</p>
+<h1>Investment Opportunities</h1>
+
+<% @funding_rounds.each do |funding_round| %>
+<div class="card mt-3 mb-5 ml-3 mr-3" style="max-width: 2000px;">
+  <div class="row no-gutters">
+      <div class="col-md-4">
+      <% if funding_round.user.photo.present? %>
+        <%= cl_image_tag funding_round.user.photo.key, :class => "card-img" %>
+      <% end %>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+      <p class="industrycards d-flex justify-content-end"><strong>Industry</strong></p>
+        <h5 class="card-title"><%= funding_round.user.name %></h5>
+        <p class="industrycard"><strong><%= funding_round.user.industry %></strong></p>
+        <p class="card-text"><%= funding_round.name %></p>
+        <p class="card-text"><%= funding_round.amount %></p>
+        <% if Investment.where("user_id = #{current_user.id} and funding_round_id = #{funding_round.id}").empty? %>
+        <div class=button>
+          <%= link_to "Interested", interested_user_funding_round_path(current_user.id, funding_round), method: :post %>
+        </div>
+        <% else %>
+        <div class=button>
+          <p>Application done</p>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
