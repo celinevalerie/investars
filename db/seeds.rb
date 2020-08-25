@@ -25,8 +25,10 @@ result['companies'].each do |company|
   user.password = 'valid_password'
   user.password_confirmation = 'valid_password'
   user.save
-end
 
+  FundingRound.create(name: ["Seed", "Series A", "Series B"].sample(), amount: rand(100000..10000000), user: user)
+
+end
 user = User.new(name: "Climately", url: "climately.io", description: "The most awesome climate change game in the world. Visionary founders with a clear vision on how saving the world can be fun.", industry: "Sustainability", role: "startup")
 user.email = "celine@climately.io"
 user.password = 'valid_password'
@@ -50,4 +52,6 @@ user = User.new(name: name, url: url, description: description, industry: indust
   user.password_confirmation = 'valid_password'
 user.save
 id += 1
+  investment = Investment.new(user: user, funding_round: FundingRound.all[rand(1..5)], interested: false)
+  investment.save
 end
