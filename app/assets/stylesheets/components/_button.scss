@@ -2,9 +2,9 @@
   color: white;
   background-color: #F6AF42;
   border-radius: 4px;
-  width: 170px;
+  width: 180px;
   height:50px;
-  font-size: 20px;
+  font-size: 18px;
   padding: 12px;
   display: flex;
   justify-content: center;
@@ -19,10 +19,49 @@
   color: white;
   background-color: #F6AF42;
   border-radius: 4px;
-  width: 170px;
+  width: 120px;
   height: 30px;
   font-size: 14px;
   padding: 3px 0px 0px 0px;
   margin: 5px 0px 0px 0px;
   text-align: center;
+}
+
+.button a {
+  font-size: 18px;
+  color: white;
+}
+
+.button p {
+  margin-bottom: 0px;
+}
+
+.button-inactive p {
+  margin-bottom: 0px;
+}
+
+.button-inactive {
+  color: #F6AF42;
+  background-color: white;
+  border: 2px solid #F6AF42;
+  border-radius: 4px;
+  width: 180px;
+  height:50px;
+  font-size: 18px;
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.button_small {
+
+}
+
+.button_small a {
+  color: white;
 }

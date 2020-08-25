@@ -1,6 +1,6 @@
 // Specific CSS for your home-page
 .container{
-  margin: 50px;
+  margin: 50px auto;
 }
 
 .title {
@@ -18,6 +18,8 @@
   background-image: url("background_header.png");
   height: 550px;
   background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: -20px;
 }
 
 .valueprops {
@@ -35,5 +37,10 @@
 
 .banner_img {
   height: 550px;
-  margin: 0px 0px 100px 0px;
+  padding-bottom: 100px;
+}
+
+.page-title {
+  margin-left: 20px;
+  margin-bottom: 20px;
 }

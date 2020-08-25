@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   resources :funding_rounds, only: [:index]
   
   resources :users, only: [:show, :edit, :update, :index] do
+    collection do
+      get "startups"
+      get "investors"
+    end
     resources :funding_rounds, only: [:new, :create, :index] do
       member do
         post 'interested'

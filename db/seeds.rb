@@ -12,7 +12,7 @@ require 'open-uri'
 APIKEY = ENV['APIKEY']
 
 # Startups
-companies_base_url = "https://api.mattermark.com/companies?&per_page=20&page=1&key=#{APIKEY}"
+companies_base_url = "https://api.mattermark.com/companies?&per_page=10&page=1&key=#{APIKEY}"
 result = JSON.parse(open(companies_base_url).read)
 result['companies'].each do |company|
   name = company['company_name']
@@ -25,9 +25,9 @@ result['companies'].each do |company|
   user.password = 'valid_password'
   user.password_confirmation = 'valid_password'
   user.save
-
-  FundingRound.create(name: ["Seed", "Series A", "Series B"].sample(), amount: rand(100000..10000000), user: user)
-
+  rand(0..2).times do
+    FundingRound.create(name: ["Seed", "Series A", "Series B"].sample(), amount: rand(100000..10000000), user: user)
+  end
 end
 user = User.new(name: "Climately", url: "climately.io", description: "The most awesome climate change game in the world. Visionary founders with a clear vision on how saving the world can be fun.", industry: "Sustainability", role: "startup")
 user.email = "celine@climately.io"
@@ -38,7 +38,7 @@ user.save
 # Investors 
 id = 30
 
-7.times do 
+5.times do 
 investors_base_url = "https://api.mattermark.com/investors/#{id}?key=#{APIKEY}"
 result = JSON.parse(open(investors_base_url).read)
   name = result['name']
