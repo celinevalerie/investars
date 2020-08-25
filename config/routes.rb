@@ -1,12 +1,5 @@
 Rails.application.routes.draw do
-  get 'users/show'
-  get 'users/edit'
-  get 'users/update'
   get 'users/index'
-  get 'investments/index'
-  get 'funding_rounds/new'
-  get 'funding_rounds/create'
-  get 'funding_rounds/index'
   get 'funding_rounds/interested'
   root to: 'pages#home'
   resources :funding_rounds, only: [:index] do
@@ -14,7 +7,6 @@ Rails.application.routes.draw do
       post 'interested'
     end
   end
-
   resources :users, only: [:show, :edit, :update, :index] do
     resources :funding_rounds, only: [:new, :create, :index] do
       resources :investments, only: [:index]
