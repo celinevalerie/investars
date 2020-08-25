@@ -1,2 +1,12 @@
-<h1>FundingRounds#new</h1>
-<p>Find me in app/views/funding_rounds/new.html.erb</p>
+  <%= simple_form_for(@funding_round) do |f| %>
+    <%= f.error_notification %>
+    <div class="form-inputs container-small">
+      <%= f.input :name,
+                    required: true %>
+      <%= f.input :amount,
+                    required: true %>
+      <div class="button">
+        <%= f.button :submit, "Save Funding Rond" %>
+      </div>
+    </div>
+  <% end %>
