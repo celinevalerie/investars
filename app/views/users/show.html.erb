@@ -31,22 +31,39 @@
   </div>
 </div>
 
-<%= cl_image_tag @user.photo.key, height: 200, width: 200, crop: :fill, style: "border-radius: 200px; margin: 30px 50px;" %>
+<div class="profile">
+  <div>
+    <%= cl_image_tag @user.photo.key, height: 200, width: 200, crop: :fill, style: "border-radius: 200px; margin: 30px 50px;" %>
+    <div style="width: 300px; margin: 0px 0px 0px 55px;">
+      <div style="text-decoration: none">
+        <ul style="list-style-type: none; padding: 0px;">
+          <li> Name: <%= @user.name %></li>
+          <li> Role: <%= @user.role %></li>
+          <li> URL: <%= @user.url %></li>
+          <li> Industry: <%= @user.industry %></li>
+        </ul>
+      </div>
 
-<div style="width: 300px; margin: 0px 0px 0px 55px;">
-  <div style="text-decoration: none">
-    <ul style="list-style-type: none; padding: 0px;">
-      <li> Name: <%= @user.name %></li>
-      <li> Role: <%= @user.role %></li>
-      <li> URL: <%= @user.url %></li>
-      <li> Industry: <%= @user.industry %></li>
-    </ul>
+      <div class="button_small">
+        <%= link_to "Request investment", new_user_funding_round_path(@user), style: "color: white; text-align: center;" %>
+      </div>
+    </div>
   </div>
-
-  <div class="button_small">
-    <%= link_to "Request investment", new_user_funding_round_path(@user), style: "color: white; text-align: center;" %>
+  <div class="card mt-3 mb-5 ml-3 mr-3" style="max-width: 950px; height: 130px">
+    <div class="row no-gutters">
+      <div class="col-md-4" style="height: 130px">
+        <img src="https://images.unsplash.com/photo-1559024094-4a1e4495c3c1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" class="card-img" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+        <p class="industrycards d-flex justify-content-end"><strong>Industry</strong></p>
+          <h5 class="card-title">Card title</h5>
+          <p class="industrycard"><strong>Description</strong></p>
+          <p class="card-text" style="font-size: 10px;">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-
 
 
