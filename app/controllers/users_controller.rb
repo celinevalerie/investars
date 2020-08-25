@@ -9,13 +9,17 @@ class UsersController < ApplicationController
 
   def update
     set_user
-    @user.update(user_params)
-
-    redirect_to user_path(@user)
+    
+    if @user.update(user_params)
+      redirect_to user_path(@user)
+    else
+      render :new
+    end
   end
 
   def index
-    @user = User.all
+    @startups = User.where("role = 'startup'")
+    @investors = User.where("role = 'investor'")
   end
 
   private
