@@ -3,8 +3,6 @@
   margin: 50px;
 }
 
-
-
 .title {
   color: #F6AF42;
   font-size: 50px;
@@ -17,8 +15,9 @@
 
 .header {
   text-align: center;
-  background-image: url('background_header.png');
-  height: 450px;
+  background-image: url("background_header.png");
+  height: 550px;
+  background-repeat: no-repeat;
 }
 
 .valueprops {
@@ -32,6 +31,11 @@
   font-size: 20px;
   padding: 5px;
   margin: 0px auto;
+}
+
+.banner_img {
+  height: 550px;
+  margin: 100px 0px 0px 0px;
 }
 
 
