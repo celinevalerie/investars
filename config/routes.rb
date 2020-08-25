@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'users/show'
+  get 'users/edit'
+  get 'users/update'
+  get 'users/index'
   get 'investments/index'
   get 'funding_rounds/new'
   get 'funding_rounds/create'
@@ -11,7 +15,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, only: [:destroy] do
+  resources :users, only: [:show, :edit, :update, :index] do
     resources :funding_rounds, only: [:new, :create, :index] do
       resources :investments, only: [:index]
     end
