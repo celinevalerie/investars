@@ -1,4 +1,56 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <a class="navbar-brand" href="#">
+    <%= image_tag("logo.png", style: "width: 50px;") %>
+</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-<%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill %>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Investors</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Startups</a>
+      </li>
+      <li class="nav-item active">
+        <div class="button_small">
+          <p>Sign in</p>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/samirajil" />
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<%= cl_image_tag @user.photo.key, height: 200, width: 200, crop: :fill, style: "border-radius: 200px; margin: 30px 50px;" %>
+
+<div style="width: 300px; margin: 0px 0px 0px 55px;">
+  <div style="text-decoration: none">
+    <ul style="list-style-type: none; padding: 0px;">
+      <li> Name: <%= @user.name %></li>
+      <li> Role: <%= @user.role %></li>
+      <li> URL: <%= @user.url %></li>
+      <li> Industry: <%= @user.industry %></li>
+    </ul>
+  </div>
+
+  <div class="button_small">
+    <%= link_to "Request investment", new_user_funding_round_path(@user), style: "color: white; text-align: center;" %>
+  </div>
+</div>
+
+<!--     t.string "role"
+    t.string "name"
+    t.string "description"
+    t.string "industry"
+    t.string "url" -->
+
