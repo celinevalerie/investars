@@ -5,3 +5,23 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# Mattermark API (do not do any unnecessary calls, limit of 100 calls with free plan)
+=begin
+require 'json'
+require 'open-uri'
+
+APIKEY = "6975cf7346c348ff27fa4bca4ba3b6d6573ae40fe832837a78bae0c2bbff8027"
+COMPANIES_BASEURL = "https://api.mattermark.com/companies?&per_page=20&page=1&key=#{APIKEY}"
+INVESTORS_BASEURL = "https://api.mattermark.com/investors/30?key=#{APIKEY}"
+
+number = "&per_page=20&page=1" 
+
+
+# Startups
+user_serialized = open(COMPANIES_BASEURL).read
+result = JSON.parse(user_serialized)
+
+company_name = result['company_name']
+domain = result['domain']
+=end
