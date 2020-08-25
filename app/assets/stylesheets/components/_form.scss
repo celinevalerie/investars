@@ -13,7 +13,6 @@ body{
 
 .form-inputs{
   margin-bottom: 10%;
-  border-top: 1px solid #bbb;
 }
 
 h2 {
@@ -22,8 +21,6 @@ h2 {
   margin-bottom: 30px;
   text-align: center;
   color: black;
-}
-
-.footer {
-  background-color: #F6AF42;
+  border-bottom: 1px solid #bbb;
+  padding-bottom: 20px;
 }
