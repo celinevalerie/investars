@@ -33,13 +33,6 @@ result['companies'].each do |company|
     FundingRound.create(name: ["Seed", "Series A", "Series B"].sample(), amount: rand(100000..10000000), user: user)
   end
 end
-user = User.new(name: "Climately", url: "climately.io", description: "The most awesome climate change game in the world. Visionary founders with a clear vision on how saving the world can be fun.", industry: "Sustainability", role: "startup")
-user.email = "celine@climately.io"
-user.password = 'valid_password'
-user.password_confirmation = 'valid_password'
-file = URI.open('https://res.cloudinary.com/doewieec6/image/upload/v1598450921/climately_zbrjwz.png')
-user.photo.attach(io: file, filename: 'climately_zbrjwz.png', content_type: 'image/png')
-user.save
 
 # Investors 
 id = 30
