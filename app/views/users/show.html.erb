@@ -13,6 +13,7 @@
           <li> Industry: <%= @user.industry %></li>
         </ul>
       </div>
+      <% if current_user.id == @user.id %>
       <% if current_user.role == 'startup' %>
         <div class="button_small">
           <%= link_to "Request investment", new_user_funding_round_path(@user), style: "color: white; text-align: center;" %>
@@ -21,10 +22,9 @@
         <div class="button_small">
           <%= link_to "Investment Opportunities", funding_rounds_path, style: "color: white; text-align: center;" %>
         </div>
-        <% if current_user.id == @user.id %>
-          <div class="button_small">
-            <%= link_to "Edit", edit_user_path(@user) %>
-          </div>
+        <div class="button_small">
+          <%= link_to "Edit", edit_user_path(@user) %>
+        </div>
         <% end %>
       <% end %>
     </div>
