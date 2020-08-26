@@ -1,4 +1,6 @@
-<h2 class="page-title">Users#edit</h2>
+<body>
+<div class="container-small">
+<h2 class="form-title">Edit profile</h2>
 
 <%= simple_form_for(@user) do |f| %>
   <%= f.error_notification %>
@@ -16,7 +18,11 @@
     <%= f.input :photo, as: :file %>
   </div>
 
+  <div class=button>
   <div class="form-actions">
     <%= f.button :submit, "Save Profile" %>
   </div>
+  </div>
+</div>
+</body>
 <% end %>
