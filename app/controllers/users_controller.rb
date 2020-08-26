@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:startups, :investors]
   def show
     set_user
     @funding_rounds = @user.funding_rounds
@@ -11,7 +12,7 @@ class UsersController < ApplicationController
 
   def update
     set_user
-    
+
     if @user.update(user_params)
       redirect_to user_path(@user)
     else
