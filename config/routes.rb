@@ -5,9 +5,11 @@ Rails.application.routes.draw do
 
   get 'users/index'
   get 'funding_rounds/interested'
-  
+  post "/users/:user_id/funding_rounds", to: "funding_rounds#create", as: "create_new_funding"
+
+
   resources :funding_rounds, only: [:index]
-  
+
   resources :users, only: [:show, :edit, :update, :index] do
     collection do
       get "startups"

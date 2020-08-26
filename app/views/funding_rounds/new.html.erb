@@ -1,5 +1,5 @@
 <h2 class="page-title">Add funding round:</h2>
-  <%= simple_form_for(@funding_round) do |f| %>
+  <%= simple_form_for(@funding_round, method: :post, url: create_new_funding_path) do |f| %>
     <%= f.error_notification %>
     <div class="form-inputs container-small">
       <%= f.input :name,

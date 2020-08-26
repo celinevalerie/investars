@@ -5,7 +5,12 @@ class FundingRoundsController < ApplicationController
 
   def create
     @funding_round = FundingRound.new(funding_round_params)
-    @funding_round.save
+    @funding_round.user_id = current_user.id
+    if @funding_round.save
+      redirect_to user_path(current_user)
+    else
+      render :new
+    end
   end
 
   def index
