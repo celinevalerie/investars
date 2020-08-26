@@ -42,7 +42,7 @@
       <div class="row no-gutters d-flex align-items-center">
         <div class="col-md-3">
           <% if funding_round.user.photo.present? %>
-            <%= cl_image_tag funding_round.user.photo.key, :class => "card-img p-2" %>
+            <%= cl_image_tag funding_round.user.photo.key, :class => "card-img" %>
           <% end %>
         </div>
         <div class="col-md-6">
