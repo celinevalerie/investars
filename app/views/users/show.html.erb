@@ -13,51 +13,79 @@
           <li> Industry: <%= @user.industry %></li>
         </ul>
       </div>
-    <% if current_user.role == 'startup' %>
-      <div class="button_small">
-        <%= link_to "Request investment", new_user_funding_round_path(@user), style: "color: white; text-align: center;" %>
-      </div>
-    <% else current_user.role == 'investor' %>
-      <div class="button_small">
-        <%= link_to "Investment Opportunities", funding_rounds_path, style: "color: white; text-align: center;" %>
-      </div>
-    <% end %>
-
-
-    </div>
-  </div>
-  <div>
-    <h2 style="margin: 30px 0px"><%= @user.name %></h2>
-    <p><%= @user.description %></p>
-  </div>
-</div>
-
-<h3 style="text-align: left; padding: 20px; color: #F6AF42; border-bottom: 1px solid #F6AF42; padding-bottom: 5px;">Your founding rounds</h3>
-<% @funding_rounds.each do |funding_round| %>
-<div class="card mt-3 mb-5 ml-3 mr-3" style="max-width: 2000px;">
-  <div class="row no-gutters d-flex align-items-center">
-      <div class="col-md-3">
-      <% if funding_round.user.photo.present? %>
-        <%= cl_image_tag funding_round.user.photo.key, :class => "card-img p-2" %>
+      <% if current_user.role == 'startup' %>
+        <div class="button_small">
+          <%= link_to "Request investment", new_user_funding_round_path(@user), style: "color: white; text-align: center;" %>
+        </div>
+      <% else current_user.role == 'investor' %>
+        <div class="button_small">
+          <%= link_to "Investment Opportunities", funding_rounds_path, style: "color: white; text-align: center;" %>
+        </div>
+        <% if current_user.id == @user.id %>
+          <div class="button_small">
+            <%= link_to "Edit", edit_user_path(@user) %>
+          </div>
+        <% end %>
       <% end %>
     </div>
-    <div class="col-md-6">
-      <div class="card-body">
-        <h5 class="card-title"><strong><%= funding_round.user.name %> - <%= funding_round.name %></strong></h5>
-        <p class="industrycard"><strong>Industry:</strong> <%= funding_round.user.industry %></p>
-        <p class="card-text"><strong>Amount:</strong> <%= funding_round.amount %>" USD"</p>
-      </div>
-    </div>
-    <div class="col-md-3">
-    <%funding_round.investments.each do |investment| %>
-    <span class="badge badge-warning">
-    <%=investment.user.name%>
-       <%=link_to investment.user.name, user_path(investment.user)%>
-    </span>
-    <% end %>
+  </div>
+    <div>
+      <h2 style="margin: 30px 0px"><%= @user.name %></h2>
+      <p><%= @user.description %></p>
     </div>
   </div>
-</div>
-<% end %>
 
+  <% if @user.role == "startup" %>
+  <h3 style="text-align: left; padding: 20px; color: #F6AF42; border-bottom: 1px solid #F6AF42; padding-bottom: 5px;">Your founding rounds</h3>
+  <% @funding_rounds.each do |funding_round| %>
+    <div class="card mt-3 mb-5 ml-3 mr-3" style="max-width: 2000px;">
+      <div class="row no-gutters d-flex align-items-center">
+        <div class="col-md-3">
+          <% if funding_round.user.photo.present? %>
+            <%= cl_image_tag funding_round.user.photo.key, :class => "card-img p-2" %>
+          <% end %>
+        </div>
+        <div class="col-md-6">
+          <div class="card-body">
+            <h5 class="card-title"><strong><%= funding_round.user.name %> - <%= funding_round.name %></strong></h5>
+            <p class="industrycard"><strong>Industry:</strong> <%= funding_round.user.industry %></p>
+            <p class="card-text"><strong>Amount:</strong> <%= funding_round.amount %>" USD"</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <%funding_round.investments.each do |investment| %>
+            <span class="badge badge-warning">
+              <%=investment.user.name%>
+              <%=link_to investment.user.name, user_path(investment.user)%>
+            </span>
+          <% end %>
+       </div>
+    </div>
+  <% end %>
+  <% elsif @user.role == "investor" %>
+  <h3 style="text-align: left; padding: 20px; color: #F6AF42; border-bottom: 1px solid #F6AF42; padding-bottom: 5px;">Your Funding Applications</h3>
+  <% @investments.each do |investment| %>
+      <div class="card mt-3 mb-5 ml-3 mr-3" style="max-width: 2000px;">
+        <div class="row no-gutters d-flex align-items-center">
+          <div class="col-md-3">
+            <% if investment.funding_round.user.photo.present? %>
+              <%= cl_image_tag investment.funding_round.user.photo.key, :class => "card-img p-2" %>
+            <% end %>
+          </div>
+          <div class="col-md-6">
+            <div class="card-body">
+              <h5 class="card-title"><strong><%= investment.funding_round.user.name %> - <%= investment.funding_round.name %></strong></h5>
+              <p class="industrycard"><strong>Industry:</strong> <%= investment.funding_round.user.industry %></p>
+              <p class="card-text"><strong>Amount:</strong> <%= investment.funding_round.amount %>" USD"</p>
+            </div>
+          </div>
+          <div class="col-md-3">
+              <div class="button-inactive">
+                <p>Application done</p>
+              </div>
+         </div>
+       </div>
+      </div>
+    <% end %>
+  <% end %>
 
