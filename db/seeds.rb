@@ -37,6 +37,8 @@ user = User.new(name: "Climately", url: "climately.io", description: "The most a
 user.email = "celine@climately.io"
 user.password = 'valid_password'
 user.password_confirmation = 'valid_password'
+file = URI.open('https://res.cloudinary.com/doewieec6/image/upload/v1598450921/climately_zbrjwz.png')
+user.photo.attach(io: file, filename: 'climately_zbrjwz.png', content_type: 'image/png')
 user.save
 
 # Investors 
