@@ -18,6 +18,9 @@
         <div class="button_small">
           <%= link_to "Request investment", new_user_funding_round_path(@user), style: "color: white; text-align: center;" %>
         </div>
+        <div class="button_small">
+          <%= link_to "Edit", edit_user_path(@user) %>
+        </div>
       <% else current_user.role == 'investor' %>
         <div class="button_small">
           <%= link_to "Investment Opportunities", funding_rounds_path, style: "color: white; text-align: center;" %>
