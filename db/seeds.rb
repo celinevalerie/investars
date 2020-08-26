@@ -24,6 +24,8 @@ result['companies'].each do |company|
   user.email = Faker::Internet.email
   user.password = 'valid_password'
   user.password_confirmation = 'valid_password'
+  preloaded = Cloudinary::PreloadedFile.new('76mfzslakddp7nj14jzvhw2vpg8z')  
+  user.photo.attach(preloaded)
   user.save
   rand(0..2).times do
     FundingRound.create(name: ["Seed", "Series A", "Series B"].sample(), amount: rand(100000..10000000), user: user)
