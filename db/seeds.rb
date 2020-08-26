@@ -24,8 +24,10 @@ result['companies'].each do |company|
   user.email = Faker::Internet.email
   user.password = 'valid_password'
   user.password_confirmation = 'valid_password'
-  preloaded = Cloudinary::PreloadedFile.new('76mfzslakddp7nj14jzvhw2vpg8z')  
-  user.photo.attach(preloaded)
+
+  file = URI.open('https://res.cloudinary.com/doewieec6/image/upload/v1598440482/belydzaow0mz6nxbqfztx7p7a4lw.jpg')
+  user.photo.attach(io: file, filename: 'belydzaow0mz6nxbqfztx7p7a4lw.jpg', content_type: 'image/jpg')
+
   user.save
   rand(0..2).times do
     FundingRound.create(name: ["Seed", "Series A", "Series B"].sample(), amount: rand(100000..10000000), user: user)
@@ -52,6 +54,8 @@ user = User.new(name: name, url: url, description: description, industry: indust
   user.email = Faker::Internet.email
   user.password = 'valid_password'
   user.password_confirmation = 'valid_password'
+  file = URI.open('https://res.cloudinary.com/doewieec6/image/upload/v1598368425/76mfzslakddp7nj14jzvhw2vpg8z.jpg')
+  user.photo.attach(io: file, filename: '76mfzslakddp7nj14jzvhw2vpg8z.jpg', content_type: 'image/jpg')
 user.save
 id += 1
 end
