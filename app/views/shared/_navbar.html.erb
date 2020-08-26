@@ -15,11 +15,13 @@
       <li class="nav-item">
         <%= link_to "Startups", startups_users_path, :class => "nav-link" %>
       </li>
+      <% if user_signed_in? == false %>
       <li class="nav-item active">
         <div class="button_small">
           <%= link_to "Login", new_user_session_path %>
         </div>
       </li>
+      <% end %>
       <% if user_signed_in? %>
       <li class="nav-item dropdown">
         <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/samirajil" />
