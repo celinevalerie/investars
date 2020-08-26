@@ -12,7 +12,7 @@
       <div class="card-body">
         <h5 class="card-title"><%= startup.name %></h5>
         <p class="industrycard"><strong><%= startup.industry %></strong></p>
-        <p class="card-text"><%= startup.description %></p>
+        <p class="card-text"><%= startup.description.slice(0..100) %><% if startup.description.length >= 100 %> <%= "..." %><%end%></p>
       </div>
     </div>
     <div class="col-md-3">
