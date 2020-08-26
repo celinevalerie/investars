@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
+
   devise_for :users, path: 'users', path_names: { sign_in: 'login', sign_out: 'logout', password: 'secret', confirmation: 'verification', unlock: 'unblock', registration: 'register', sign_up: 'signup' }
+
   get 'users/index'
   get 'funding_rounds/interested'
   
