@@ -52,6 +52,7 @@
     <%funding_round.investments.each do |investment| %>
     <span class="badge badge-warning">
     <%=investment.user.name%>
+       <%=link_to investment.user.name, user_path(investment.user)%>
     </span>
     <% end %>
     </div>
