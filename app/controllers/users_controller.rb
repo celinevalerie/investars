@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   def show
     set_user
+    @funding_rounds = @user.funding_rounds
+    @investments = Investment.where("user_id = #{@user.id}")
   end
 
   def edit
