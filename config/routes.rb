@@ -25,9 +25,10 @@ Rails.application.routes.draw do
       member do
         post 'interested'
       end
+      resources :answers, only: [:new, :index]
       resources :questions, only: [:new, :create, :index]
-      resources :investments, only: [:index] do 
-        resources :answers, only: [:new, :create, :index]
+      resources :investments, only: [:index] do
+        resources :answers, only: [:create]
       end
     end
   end

@@ -8,7 +8,7 @@ class QuestionsController < ApplicationController
     @question.funding_round_id = params[:funding_round_id]
 
     if @question.save
-      redirect_to user_funding_round_questions_path
+      redirect_to new_user_funding_round_question_path
     else
       render :new
     end
@@ -17,6 +17,7 @@ class QuestionsController < ApplicationController
   def index
     @questions = Question.where("funding_round_id = #{params[:funding_round_id]}")
     @funding_round = FundingRound.find(params[:funding_round_id])
+    @answers = Answer.all
   end
 
   private

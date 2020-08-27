@@ -1,17 +1,33 @@
+require 'byebug'
+
 class AnswersController < ApplicationController
   def new
     @answer = Answer.new
-    @user = User.find(params[:user_id])
     @funding_round = FundingRound.find(params[:funding_round_id])
-    @investment = Investment.find(params[:investment_id])
-    @investment.funding_round = @funding_round
     @questions = @funding_round.questions
+    @investment = Investment.new(interested: false, user: current_user, funding_round: @funding_round)
+    @investment.save
   end
 
   def create
-    @answer = Answer.new(answer_params)
+    params.each do |key, value|
+      if key.match?(/question/) == true 
+        @answer = Answer.new()
+        @answer.investment_id = params[:investment_id]
+        @answer.question_id = key.rpartition('-').last
+        @answer.answer = value
+        @answer.save
+      end
+    end
+
     if @answer.save
-      redirect_to users_path
+      @investment = Investment.find(params[:investment_id])
+      @investment.interested = true
+      if @investment.save
+        redirect_to user_path(current_user)
+      else 
+        render :new
+      end
     else
       render :new
     end

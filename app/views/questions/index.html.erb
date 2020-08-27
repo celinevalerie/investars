@@ -3,7 +3,8 @@
 
 
 <% @questions.each do |question|  %>
+  <% @answer = @answers.where("question_id = #{question.id}") %>
   <ul>
-    <li><%= question.question %></li>
+    <li><%= question.question %> - <%= @answers %> </li>
   </ul>
 <% end %>
