@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get 'question/new'
+  get 'question/create'
+  get 'answer/new'
+  get 'answer/create'
+  get 'answer/index'
   root to: 'pages#home'
 
   devise_for :users, path: 'users', path_names: { sign_in: 'login', sign_out: 'logout', password: 'secret', confirmation: 'verification', unlock: 'unblock', registration: 'register', sign_up: 'signup' }
@@ -19,7 +24,10 @@ Rails.application.routes.draw do
       member do
         post 'interested'
       end
-      resources :investments, only: [:index]
+      resources :questions, only: [:new, :create, :index]
+      resources :investments, only: [:index] do 
+        resources :answer, only: [:new, :create, :index]
+      end
     end
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
