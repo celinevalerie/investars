@@ -1,42 +1,39 @@
-
 <div class="header" style="background-image: url(https://res.cloudinary.com/doewieec6/image/upload/v1598454330/Rectangle_1_em8j4l.png);">
-  <%= image_tag ("header.png") %>
+  <%= image_tag ("header.png"), :class => "mt-5 img-fluid" %>
 </div>
 
 <div class="container">
 
   <h2 class="title">Investar</h2>
   <h4 class="subtitle">Your  plattform for exclusive investment opportunities</h4>
-
-  <div class="valueprops">
-    <div>
-      <%= image_tag ("head_icon.png"), style: "width: 140px; height: 120px; margin: 20px;" %>
-      <h4>Screen</h4>
-      <p>Find the perfect business opportunity</p>
-    </div>
-    <div>
-      <%= image_tag ("connect_icon.png"), style: "width: 140px; height: 120px; margin: 20px;" %>
-      <h4>Match</h4>
-      <p>Find the perfect business opportunity</p>
-    </div>
-    <div>
-      <%= image_tag ("plant_icon.png"), style: "width: 180px; height: 120px; margin: 20px;" %>
-      <h4>Earn</h4>
-      <p>Find the perfect business opportunity</p>
+    <div class="container-valueprops">
+      <div class="valueprops">
+        <div class="row">
+          <div class="col-sm-12 col-md-4">
+            <%= image_tag ("head_icon.png"), style: "width: 140px; height: 120px; margin: 20px;" %>
+            <h4>Screen</h4>
+            <p>Find the perfect business opportunity</p>
+          </div>
+          <div class="col-sm-12 col-md-4">
+            <%= image_tag ("connect_icon.png"), style: "width: 140px; height: 120px; margin: 20px;" %>
+            <h4>Match</h4>
+            <p>Find the perfect business opportunity</p>
+          </div>
+          <div class="col-sm-12 col-md-4">
+            <%= image_tag ("plant_icon.png"), style: "width: 180px; height: 120px; margin: 20px;" %>
+            <h4>Earn</h4>
+            <p>Find the perfect business opportunity</p>
+          </div>
+        </div>
     </div>
   </div>
 
   <div class="button">
     <%= link_to "Sign Up", new_user_registration_path %>
   </div>
-
 </div>
 
 <div class="banner_img">
-  <%= image_tag("startup_banner.jpg", style: "width: 100%;") %>
+  <%= image_tag("startup_banner2.jpg", style: "width: 100%; max-height: 700px; object-fit: cover;") %>
 </div>
-
-
-
-
 

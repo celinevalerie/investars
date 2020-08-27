@@ -57,7 +57,7 @@
           </div>
         </div>
         <div class="col-md-3">
-          <%funding_round.investments.each do |investment| %>
+          <% funding_round.investments.each do |investment| %>
             <span class="badge badge-warning">
               <%=link_to investment.user.name, user_path(investment.user)%>
             </span>
@@ -65,6 +65,7 @@
        </div>
     </div>
   <% end %>
+
   <% elsif @user.role == "investor" %>
   <h3 style="text-align: left; padding: 20px; color: #F6AF42; border-bottom: 1px solid #F6AF42; padding-bottom: 5px;">Your Funding Applications</h3>
   <% @investments.each do |investment| %>
@@ -83,9 +84,9 @@
             </div>
           </div>
           <div class="col-md-3">
-              <div class="button-inactive">
-                <p>Application done</p>
-              </div>
+            <div class="button-inactive">
+              <p>Application done</p>
+            </div>
          </div>
        </div>
       </div>

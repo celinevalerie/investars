@@ -1,13 +1,14 @@
 class FundingRoundsController < ApplicationController
   def new
     @funding_round = FundingRound.new
+    @question = Question.new
   end
 
   def create
     @funding_round = FundingRound.new(funding_round_params)
     @funding_round.user_id = current_user.id
     if @funding_round.save
-      redirect_to user_path(current_user)
+      redirect_to new_user_funding_round_question_path(current_user, @funding_round)
     else
       render :new
     end
@@ -15,6 +16,8 @@ class FundingRoundsController < ApplicationController
 
   def index
     @funding_rounds = FundingRound.all
+    @investment = Investment.new(user_id: current_user.id, funding_round_id: @funding_rounds.first.id, interested: false)
+    @investment.save
   end
 
   def interested
@@ -25,7 +28,6 @@ class FundingRoundsController < ApplicationController
 
     redirect_to session.delete(:return_to)
   end
-
 
   private
 

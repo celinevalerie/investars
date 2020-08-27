@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2020_08_27_080145) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +38,16 @@ ActiveRecord::Schema.define(version: 2020_08_27_080145) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "answers", force: :cascade do |t|
+    t.string "answer"
+    t.bigint "question_id"
+    t.bigint "investment_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["investment_id"], name: "index_answers_on_investment_id"
+    t.index ["question_id"], name: "index_answers_on_question_id"
+  end
+
   create_table "funding_rounds", force: :cascade do |t|
     t.string "name"
     t.integer "amount"
@@ -53,6 +65,14 @@ ActiveRecord::Schema.define(version: 2020_08_27_080145) do
     t.bigint "funding_round_id"
     t.index ["funding_round_id"], name: "index_investments_on_funding_round_id"
     t.index ["user_id"], name: "index_investments_on_user_id"
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.string "question"
+    t.bigint "funding_round_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["funding_round_id"], name: "index_questions_on_funding_round_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -76,7 +96,10 @@ ActiveRecord::Schema.define(version: 2020_08_27_080145) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "answers", "investments"
+  add_foreign_key "answers", "questions"
   add_foreign_key "funding_rounds", "users"
   add_foreign_key "investments", "funding_rounds"
   add_foreign_key "investments", "users"
+  add_foreign_key "questions", "funding_rounds"
 end
