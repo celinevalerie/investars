@@ -1,0 +1,9 @@
+<p>My funding round</p>
+<%= @funding_round.name %>
+
+
+<% @questions.each do |question|  %>
+  <ul>
+    <li><%= question.question %></li>
+  </ul>
+<% end %>

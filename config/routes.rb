@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'users/index'
   get 'funding_rounds/interested'
   post "/users/:user_id/funding_rounds", to: "funding_rounds#create", as: "create_new_funding"
+  post "/users/:user_id/funding_rounds/:funding_round_id/questions", to: "questions#create", as: "create_new_question"
 
 
   resources :funding_rounds, only: [:index]
