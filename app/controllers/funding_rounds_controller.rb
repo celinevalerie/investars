@@ -8,7 +8,7 @@ class FundingRoundsController < ApplicationController
     @funding_round = FundingRound.new(funding_round_params)
     @funding_round.user_id = current_user.id
     if @funding_round.save
-      redirect_to user_path(current_user)
+      redirect_to new_user_funding_round_question_path(current_user, @funding_round)
     else
       render :new
     end
@@ -26,7 +26,6 @@ class FundingRoundsController < ApplicationController
 
     redirect_to session.delete(:return_to)
   end
-
 
   private
 

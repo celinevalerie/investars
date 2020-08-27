@@ -1,5 +1,6 @@
-<h5></h5>
-    <%= simple_form_for(@question) do |f| %>
+<h5>Hello</h5>
+
+  <%= simple_form_for(@question, method: :post, url: create_new_question_path) do |f| %>
     <%= f.error_notification %>
     <div class="form-inputs container-small">
       <%= f.input :question,
@@ -8,4 +9,5 @@
         <%= f.button :submit, "Save Question" %>
       </div>
     </div>
- <% end %>
+  <% end %>
+
