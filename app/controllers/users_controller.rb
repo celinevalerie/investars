@@ -31,7 +31,7 @@ class UsersController < ApplicationController
 
   def investors
     if params[:query].present?
-      @investors = User.where({name: params[:query]})
+      @investors = User.search_by_name_and_description_and_industry_and_url(params[:query])
     else
       @investors = User.where("role = 'investor'")
     end
