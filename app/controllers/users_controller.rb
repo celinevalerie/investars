@@ -27,7 +27,13 @@ class UsersController < ApplicationController
 
   def startups
     @startups = User.where("role = 'startup'")
+    @markers = @startups.geocoded.map do |startup|
+      {
+        lat: startup.latitude,
+        lng: startup.longitude
+      }
   end
+end
 
   def investors
     @investors = User.where("role = 'investor'")
