@@ -2,9 +2,10 @@
 <%= @funding_round.name %>
 
 
-<% @questions.each do |question|  %>
-  <% @answer = @answers.where("question_id = #{question.id}") %>
+<% @answers.each do |answer|  %>
+  <% if @investments_ids.include? answer.investment_id %>
   <ul>
-    <li><%= question.question %> - <%= @answers %> </li>
+    <li><%= answer.question.question %> - <%= answer.investment.user.name %>: <%= answer.answer %></li>
   </ul>
+  <% end %>
 <% end %>

@@ -15,8 +15,8 @@ class QuestionsController < ApplicationController
   end
 
   def index
-    @questions = Question.where("funding_round_id = #{params[:funding_round_id]}")
     @funding_round = FundingRound.find(params[:funding_round_id])
+    @investments_ids = @funding_round.investments.ids
     @answers = Answer.all
   end
 
