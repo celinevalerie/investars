@@ -1,3 +1,14 @@
+<%= form_tag startups_users_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a startup"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+
+
+
 <h2 class="page-title">Startups</h2>
 
 
