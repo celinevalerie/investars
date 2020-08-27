@@ -26,7 +26,11 @@ class UsersController < ApplicationController
   end
 
   def startups
-    @startups = User.where("role = 'startup'")
+    if params[:query].present?
+      @startups = User.search_by_name_and_description_and_industry_and_url(params[:query])
+    else
+      @startups = User.where("role = 'startup'")
+    end
     @markers = @startups.geocoded.map do |startup|
       {
         lat: startup.latitude,
