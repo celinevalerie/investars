@@ -26,8 +26,8 @@ Rails.application.routes.draw do
         post 'interested'
       end
       resources :questions, only: [:new, :create, :index]
-      resources :investments, only: [:index] do
-        resources :answer, only: [:new, :create, :index]
+      resources :investments, only: [:index] do 
+        resources :answers, only: [:new, :create, :index]
       end
     end
   end

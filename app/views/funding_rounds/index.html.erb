@@ -16,15 +16,9 @@
       </div>
     </div>
     <div class="col-md-3">
-        <% if Investment.where("user_id = #{current_user.id} and funding_round_id = #{funding_round.id}").empty? %>
         <div class="button">
-          <%= link_to "Interested", interested_user_funding_round_path(current_user.id, funding_round), method: :post %>
+          <%= link_to "Apply to Invest", new_user_funding_round_investment_answer_path(funding_round.user, funding_round, @investment ) %>
         </div>
-        <% else %>
-        <div class="button-inactive">
-          <p>Application done</p>
-        </div>
-        <% end %>
         <div class="button">
           <%= link_to "Startup Profile", user_path(funding_round.user) %>
         </div>
