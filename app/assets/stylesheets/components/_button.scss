@@ -2,7 +2,7 @@
   color: white;
   background-color: #F6AF42;
   border-radius: 4px;
-  width: 180px;
+  width: auto;
   height:50px;
   font-size: 18px;
   padding: 12px;
@@ -13,6 +13,24 @@
   align-items: center;
   justify-content: center;
   font-weight: bold;
+}
+
+.button-z{
+  color: white;
+  background-color: #F6AF42;
+  border-radius: 4px;
+  width: 180px;
+  height:40px;
+  font-size: 18px;
+  padding: 2px;
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border: white
 }
 
 .button_small {

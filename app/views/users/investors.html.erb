@@ -1,35 +1,46 @@
-<%= form_tag investors_users_path, method: :get do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Find a investor"
-  %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
-
-<h2 class="page-title">Investors</h2>
-
-<% @investors.each do |investor| %>
-  <div class="card mt-3 mb-5 ml-3 mr-3" style="max-width: 2000px;">
-    <div class="row no-gutters d-flex align-tiems-center">
-      <div class="col-md-3">
-        <% if investor.photo.present? %>
-          <%= cl_image_tag investor.photo.key, :class => "card-img" %>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="form-container">
+        <%= form_tag investors_users_path, method: :get do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Find a investor"
+          %>
         <% end %>
       </div>
-      <div class="col-md-6">
-        <div class="card-body">
-          <h5 class="card-title"><%= investor.name %></h5>
-          <p class="card-text"><%= investor.description.slice(0..100)%><% if investor.description.length >= 100 %> <%= "..." %><%end%></p>
-          <p class="industrycard">Industry: <%= investor.industry %></p>
 
+      <%= submit_tag "Search", class: "button-z" %>
+
+
+      <h2 class="page-title">Investors</h2>
+
+      <% @investors.each do |investor| %>
+        <div class="card mt-3 mb-5 ml-3 mr-3" style="max-width: 2000px;">
+          <div class="row no-gutters d-flex align-tiems-center">
+            <div class="col-lg-4 investor-photo">
+              <% if investor.photo.present? %>
+                <%= cl_image_tag investor.photo.key, :class => "card-img" %>
+              <% end %>
+            </div>
+            <div class="col-lg-5">
+              <div class="card-body">
+                <h5 class="card-title"><%= investor.name %></h5>
+                <p class="card-text"><%= investor.description.slice(0..100)%><% if investor.description.length >= 100 %> <%= "..." %><%end%></p>
+                <p class="industrycard">Industry: <%= investor.industry %></p>
+
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="button investor-button">
+                <%= link_to "Investor Profile", user_path(investor) %>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="col-md-3">
-        <div class="button">
-          <%= link_to "Investor Profile", user_path(investor) %>
-        </div>
-      </div>
+      <% end %>
     </div>
   </div>
-<% end %>
+</div>
+
