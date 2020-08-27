@@ -26,7 +26,7 @@ Rails.application.routes.draw do
       end
       resources :questions, only: [:new, :create, :index]
       resources :investments, only: [:index] do 
-        resources :answer, only: [:new, :create, :index]
+        resources :answers, only: [:new, :create, :index]
       end
     end
   end

@@ -16,6 +16,8 @@ class FundingRoundsController < ApplicationController
 
   def index
     @funding_rounds = FundingRound.all
+    @investment = Investment.new(user_id: current_user.id, funding_round_id: @funding_rounds.first.id, interested: false)
+    @investment.save
   end
 
   def interested

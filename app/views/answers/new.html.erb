@@ -1,0 +1,18 @@
+<h2>Application form</h2>
+<p><%= @funding_round.user.name %></p>
+<p><%= @funding_round.name %></p>
+<p><%= @funding_round.amount %></p>
+
+
+<% @questions.each do |question| %>
+  <p><%= question.question %></p>
+  <%= simple_form_for(@answer method: :post, url: user_funding_round_questions_path(@user, @funding_round, @investment)) do |f| %>
+    <%= f.error_notification %>
+    <div class="form-inputs container-small">
+      <%= f.input :answer, required: true %>
+      <div class="button">
+        <%= f.button :submit, "Apply now" %>
+      </div>
+    </div>
+  <% end %>
+<% end %>
