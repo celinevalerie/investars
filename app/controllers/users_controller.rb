@@ -30,7 +30,11 @@ class UsersController < ApplicationController
   end
 
   def investors
-    @investors = User.where("role = 'investor'")
+    if params[:query].present?
+      @investors = User.where({name: params[:query]})
+    else
+      @investors = User.where("role = 'investor'")
+    end
   end
 
   private
