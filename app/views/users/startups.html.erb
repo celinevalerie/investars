@@ -1,5 +1,15 @@
 <h2 class="page-title">Startups</h2>
 
+
+
+<div id="map"
+     style="width: 50%; height: 300px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
+
+
+
 <% @startups.each do |startup| %>
 <div class="card mt-3 mb-5 ml-3 mr-3" style="max-width: 2000px;">
   <div class="row no-gutters d-flex align-tiems-center">

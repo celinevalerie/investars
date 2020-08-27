@@ -27,7 +27,13 @@ class UsersController < ApplicationController
 
   def startups
     @startups = User.where("role = 'startup'")
+    @markers = @startups.geocoded.map do |startup|
+      {
+        lat: startup.latitude,
+        lng: startup.longitude
+      }
   end
+end
 
   def investors
     if params[:query].present?
@@ -44,7 +50,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:role, :name, :description, :industry, :photo)
+    params.require(:user).permit(:role, :name, :description, :industry, :photo, :address)
   end
 
 end
