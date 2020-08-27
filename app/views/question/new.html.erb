@@ -1,0 +1,11 @@
+<h5></h5>
+    <%= simple_form_for(@question) do |f| %>
+    <%= f.error_notification %>
+    <div class="form-inputs container-small">
+      <%= f.input :question,
+                    required: true %>
+      <div class="button">
+        <%= f.button :submit, "Save Question" %>
+      </div>
+    </div>
+ <% end %>

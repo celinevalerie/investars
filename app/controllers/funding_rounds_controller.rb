@@ -1,6 +1,7 @@
 class FundingRoundsController < ApplicationController
   def new
     @funding_round = FundingRound.new
+    @question = Question.new
   end
 
   def create
