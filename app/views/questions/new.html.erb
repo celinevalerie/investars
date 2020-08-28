@@ -1,8 +1,9 @@
-<h2 class="page-title">Add Questions for Investors:</h2>
+<div class="container-md">
+<h2 class="form-title"> Add a Question:</h2>
 
   <%= simple_form_for(@question, method: :post, url: create_new_question_path) do |f| %>
     <%= f.error_notification %>
-    <div class="form-inputs container-md">
+    <div class="form-inputs">
       <%= f.input :question,
                     required: true %>
     <div class="d-flex">
@@ -14,4 +15,5 @@
       <%= link_to "Save Form", user_path(current_user)%>
     </div>
     </div>
+  </div>
   </div>
