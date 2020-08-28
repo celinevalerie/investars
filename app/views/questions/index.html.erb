@@ -1,11 +1,40 @@
-<p>My funding round</p>
-<%= @funding_round.name %>
+<h2 class="page-title"><%= @funding_round.name %></h2>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <% @investments.each do |investment| %>
+        <div class="card mt-3 mb-5 ml-3 mr-3" style="max-width: 2000px;">
+          <div class="row no-gutters d-flex align-tiems-center">
+            <div class="col-lg-4 investor-photo">
+              <% if investment.user.photo.present? %>
+                <%= cl_image_tag investment.user.photo.key, :class => "card-img" %>
+              <% end %>
+            </div>
+            <div class="col-lg-5">
+              <div class="card-body">
+                <h5 class="card-title"><%= investment.user.name %></h5>
+                <% investment.funding_round.questions.each do |question| %>
+                  <p><strong><%= question.question %></strong></p> 
+                  <p><%= question.answer(question) %></p>
+                <% end %>
+                <p class="card-text"></p>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="button investor-button">
+                <%= link_to "Investor Profile", user_path(investment.user.id) %>
+              </div>
+              <div class="button investor-button">
+                <%= link_to "Accept Application", user_path(investment.user.id) %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
 
 
-<% @answers.each do |answer|  %>
-  <% if @investments_ids.include? answer.investment_id %>
-  <ul>
-    <li><%= answer.question.question %> - <%= answer.investment.user.name %>: <%= answer.answer %></li>
-  </ul>
-  <% end %>
-<% end %>
+

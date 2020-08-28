@@ -3,6 +3,7 @@
   background-color: #F6AF42;
   border-radius: 4px;
   width: auto;
+  max-width: 250px;
   height:50px;
   font-size: 18px;
   padding: 12px;
@@ -76,4 +77,52 @@
   align-items: center;
   justify-content: center;
   font-weight: bold;
+}
+
+.button-md {
+  color: white;
+  background-color: #F6AF42;
+  border-radius: 4px;
+  width: auto;
+  max-width: 250px;
+  height:50px;
+  font-size: 18px;
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.button-md a {
+  font-size: 18px;
+  color: white;
+  font-weight: bold;
+  opacity: 0.8;
+}
+
+.button-md input {
+  font-size: 18px;
+  color: white;
+  font-weight: bold;
+  opacity: 0.8;
+}
+
+.button-md a:hover {
+  text-decoration: none; 
+  font-size: 18px;
+  color: white;
+  font-weight: bold;
+  opacity: 1; 
+}
+
+.button-md input:hover {
+  text-decoration: none; 
+  font-size: 18px;
+  color: white;
+  font-weight: bold;
+  opacity: 1; 
 }
