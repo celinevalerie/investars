@@ -1,6 +1,5 @@
 
-<h2 class="page-title">Profile</h2>
-
+<div class="container">
 <div class="profile d-flex justify-content-start align-items-center">
   <div class="profile-picture">
     <% if @user.photo.present? %>  
@@ -46,12 +45,12 @@
     <% @funding_rounds.each do |funding_round| %>
       <div class="card mt-3 mb-5 ml-3 mr-3" style="max-width: 2000px;">
         <div class="row no-gutters d-flex align-items-center">
-          <div class="col-md-3">
+          <div class="col-lg-4 user-photo">
             <% if funding_round.user.photo.present? %>
               <%= cl_image_tag funding_round.user.photo.key, :class => "card-img" %>
             <% end %>
           </div>
-          <div class="col-md-6">
+          <div class="col-lg-5">
             <div class="card-body">
               <h5 class="card-title"><strong><%= funding_round.user.name %> - <%= funding_round.name %></strong></h5>
               <p class="industrycard"><strong>Industry:</strong> <%= funding_round.user.industry %></p>
@@ -80,19 +79,19 @@
   <% @investments.each do |investment| %>
       <div class="card mt-3 mb-5 ml-3 mr-3" style="max-width: 2000px;">
         <div class="row no-gutters d-flex align-items-center">
-          <div class="col-md-3">
+          <div class="col-lg-4 user-photo">
             <% if investment.funding_round.user.photo.present? %>
               <%= cl_image_tag investment.funding_round.user.photo.key, :class => "card-img p-2" %>
             <% end %>
           </div>
-          <div class="col-md-6">
+          <div class="col-lg-5">
             <div class="card-body">
               <h5 class="card-title"><strong><%= investment.funding_round.user.name %> - <%= investment.funding_round.name %></strong></h5>
               <p class="industrycard"><strong>Industry:</strong> <%= investment.funding_round.user.industry %></p>
               <p class="card-text"><strong>Amount:</strong> <%= investment.funding_round.amount %>" USD"</p>
             </div>
           </div>
-          <div class="col-md-3">
+          <div class="col-lg-3">
             <div class="button-inactive">
               <p>Application done</p>
             </div>
@@ -103,4 +102,4 @@
     <% end %>
   <% end %>
 </div>
-
+</div>
