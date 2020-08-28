@@ -2,8 +2,9 @@
 
 <h4 class="page-subtitle">Our startups surprise with their innovation potential</h4>
 
+
 <div class="container">
-  <%= form_tag investors_users_path, method: :get do%>
+  <%= form_tag startups_users_path, method: :get do%>
           <%= text_field_tag :query,
             params[:query],
             class: "form-control",
