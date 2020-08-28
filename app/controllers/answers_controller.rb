@@ -1,5 +1,3 @@
-require 'byebug'
-
 class AnswersController < ApplicationController
   def new
     @answer = Answer.new
@@ -11,7 +9,7 @@ class AnswersController < ApplicationController
 
   def create
     params.each do |key, value|
-      if key.match?(/question/) == true 
+      if key.match?(/question/) == true
         @answer = Answer.new()
         @answer.investment_id = params[:investment_id]
         @answer.question_id = key.rpartition('-').last
@@ -25,7 +23,7 @@ class AnswersController < ApplicationController
       @investment.interested = true
       if @investment.save
         redirect_to user_path(current_user)
-      else 
+      else
         render :new
       end
     else
@@ -46,7 +44,7 @@ class AnswersController < ApplicationController
     @answer = Answer.find(params[:id])
   end
 
-  def answer_params 
+  def answer_params
     params.require(:answer).permit(:answer)
   end
 end
