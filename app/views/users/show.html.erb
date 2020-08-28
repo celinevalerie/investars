@@ -1,6 +1,6 @@
 <h2 class="page-title">Profile</h2>
 
-<div class="profile d-flex justify-content-start">
+<div class="profile d-flex justify-content-start align-items-center">
   <div class="profile-picture">
     <% if @user.photo.present? %>  
       <%= cl_image_tag(@user.photo.key, :class => "profile-picture-image ml-4 mb-4 shadow") %>
@@ -40,6 +40,7 @@
 
 <div class="mt-5">
   <% if @user.role == "startup" %>
+  <% if @funding_rounds.length > 0 %>
     <h3 style="text-align: left; padding: 20px; color: #F6AF42; border-bottom: 1px solid #F6AF42; padding-bottom: 5px;">Founding Rounds</h3>
     <% @funding_rounds.each do |funding_round| %>
       <div class="card mt-3 mb-5 ml-3 mr-3" style="max-width: 2000px;">
@@ -70,8 +71,10 @@
       </div>
       </div>
     <% end %>
+    <% end %>
 
   <% elsif @user.role == "investor" %>
+  <% if @investments.length > 0 %>
   <h3 style="text-align: left; padding: 20px; color: #F6AF42; border-bottom: 1px solid #F6AF42; padding-bottom: 5px;">Your Funding Applications</h3>
   <% @investments.each do |investment| %>
       <div class="card mt-3 mb-5 ml-3 mr-3" style="max-width: 2000px;">
@@ -95,6 +98,7 @@
          </div>
        </div>
       </div>
+    <% end %>
     <% end %>
   <% end %>
 </div>
