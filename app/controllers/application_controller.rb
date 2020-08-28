@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
 
   private
 
+
   def after_new_user_registration_path_for(resource)
     "/users/#{current_user.id}"
   end
