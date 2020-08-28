@@ -58,3 +58,15 @@ body{
     align-items: center;
   }
 }
+
+@include media-breakpoint-between(lg, xl) {
+  .form-inputs {
+    padding: 0px 200px;
+  }
+}
+
+@include media-breakpoint-between(lg, xl) {
+  .form-inputs-login {
+    padding: 20px;
+  }
+}
