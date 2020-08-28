@@ -1,7 +1,6 @@
 body{
   background-color: white;
 }
-
 .container-small{
   color: grey;
   margin: 50px 350px;
@@ -10,11 +9,15 @@ body{
   // padding: 25px 50px 75px 100px;
    // box-shadow: 3px 4px 5px -2px #888888;
 }
-
+.search-investor{
+  background: #fff;
+  background-color: white;
+  margin: 20px 350px;
+  padding: 30px;
+}
 .form-inputs{
   margin-bottom: 0%;
 }
-
 .form-title {
   font-size: 50px;
   font-weight: bold;
@@ -23,4 +26,35 @@ body{
   color: black;
   border-bottom: 1px solid #bbb;
   padding-bottom: 20px;
+}
+@media screen and (max-width: 600px) {
+  .topnav a {
+    float: none;
+    width: 100%;
+  }
+}
+@include media-breakpoint-between(xs, md) { //usar isto para quando queremos fazer alteraçoes ate um determinado tamanho
+  .investor-photo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+}
+.investor-button {
+  margin: 20px 20px;
+}
+@include media-breakpoint-between(lg, xl) { //usar isto para quando queremos fazer alteraçoes ate um determinado tamanho
+  .investor-button{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+}
+@include media-breakpoint-between(lg, xl) {
+  .form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
