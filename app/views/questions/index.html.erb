@@ -5,7 +5,7 @@
     <div class="col-12">
       <% @investments.each do |investment| %>
         <div class="card mt-3 mb-5 ml-3 mr-3" style="max-width: 2000px;">
-          <div class="row no-gutters d-flex align-tiems-center">
+          <div class="row no-gutters d-flex align-items-center">
             <div class="col-lg-4 investor-photo">
               <% if investment.user.photo.present? %>
                 <%= cl_image_tag investment.user.photo.key, :class => "card-img" %>
@@ -15,8 +15,11 @@
               <div class="card-body">
                 <h5 class="card-title"><%= investment.user.name %></h5>
                 <% investment.funding_round.questions.each do |question| %>
-                  <p><strong><%= question.question %></strong></p> 
-                  <p><%= question.answer(question) %></p>
+                  <p><strong><%= question.question %></strong></p>
+                  <p><% if question.answer(question).nil? == false %>
+                  <%= question.answer(question) %>
+                  <% end %>
+                  </p>
                 <% end %>
                 <p class="card-text"></p>
               </div>
