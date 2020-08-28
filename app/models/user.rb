@@ -2,8 +2,8 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_one_attached :photo
-  has_many :investments
-  has_many :funding_rounds
+  has_many :investments, dependent: :destroy
+  has_many :funding_rounds, dependent: :destroy
 
   include PgSearch::Model
   pg_search_scope :search_by_name_and_description_and_industry_and_url,
