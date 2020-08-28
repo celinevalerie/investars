@@ -1,6 +1,22 @@
-.profile {
-  display: flex;
+.profile-picture-image {
+  width: 250px;
 }
-.badge a{
-  color: white;
+
+.profile-button {
+  width: 250px;
+}
+
+@include media-breakpoint-between(xs, md) {
+  .profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@include media-breakpoint-between(xs, md) {
+  .profile-text {
+  width: 250px;
+  }
 }
