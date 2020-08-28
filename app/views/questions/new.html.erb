@@ -1,7 +1,9 @@
+
 <div class="container-md">
 <h2 class="page-title">Question</h2>
 
 <h4 class="page-subtitle">Which question do you want to ask your potential investors?</h4>
+
 
   <%= simple_form_for(@question, method: :post, url: create_new_question_path) do |f| %>
     <%= f.error_notification %>
