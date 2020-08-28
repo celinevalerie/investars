@@ -1,17 +1,20 @@
+<h2 class="page-title">Investors</h2>
+
+<h4 class="page-subtitle">Our very experienced investors</h4>
+
+
 <div class="container">
-  <div class="row">
-    <div class="col-12">
-      <div class="form-container">
-        <%= form_tag investors_users_path, method: :get do %>
+  <%= form_tag investors_users_path, method: :get do %>
           <%= text_field_tag :query,
             params[:query],
             class: "form-control",
+            style: "margin: 15px; max-width: 900px;",
             placeholder: "Find a investor"
           %>
         <% end %>
-      </div>
+  <div class="row">
+    <div class="col-12">
       <%= submit_tag "Search", class: "button-z" %>
-      <h2 class="page-title">Investors</h2>
       <% @investors.each do |investor| %>
         <div class="card mt-3 mb-5 ml-3 mr-3" style="max-width: 2000px;">
           <div class="row no-gutters d-flex align-tiems-center">
