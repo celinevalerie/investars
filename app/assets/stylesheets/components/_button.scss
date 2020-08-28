@@ -32,6 +32,25 @@
   font-weight: bold;
   border: white
 }
+
+.button-investor{
+  color: white;
+  background-color: #F6AF42;
+  border-radius: 4px;
+  width: 180px;
+  height:40px;
+  font-size: 18px;
+  padding: 2px;
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border: white
+}
+
 .button_small {
   color: white;
   background-color: #F6AF42;
@@ -143,3 +162,4 @@
   font-weight: bold;
   opacity: 1; 
 }
+

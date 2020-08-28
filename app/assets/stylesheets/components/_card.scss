@@ -5,3 +5,21 @@
   width: 300px;
   height: 180px;
 }
+
+@include media-breakpoint-between(xs, md) {
+  .card-body p {
+    text-align: center;
+  }
+}
+
+@include media-breakpoint-between(xs, md) {
+  .card-title {
+    text-align: center;
+  }
+}
+
+@include media-breakpoint-between(xs, md) {
+  .page-title {
+    text-align: center;
+  }
+}
