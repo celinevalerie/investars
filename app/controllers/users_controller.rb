@@ -54,7 +54,7 @@ end
   end
 
   def user_params
-    params.require(:user).permit(:role, :name, :description, :industry, :photo, :address)
+    params.require(:user).permit(:role, :name, :description, :industry, :photo, :address, :url)
   end
 
 end

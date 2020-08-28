@@ -1,23 +1,15 @@
 <h2 class="page-title">Profile</h2>
 
-<div class="profile">
-  <div>
-    <% if @user.photo.present? %>
-      <%= cl_image_tag @user.photo.key, height: 200, width: 200, crop: :fill, style: "border-radius: 200px; margin: 30px 50px;" %>
+<div class="profile d-flex justify-content-start">
+  <div class="profile-picture">
+    <% if @user.photo.present? %>  
+      <%= cl_image_tag(@user.photo.key, :class => "profile-picture-image ml-4 mb-4 shadow") %>
     <% end %>
-    <div style="width: 300px; margin: 0px 0px 0px 55px;">
-      <div style="text-decoration: none">
-        <ul style="list-style-type: none; padding: 0px;">
-          <li> Role: <%= @user.role %></li>
-          <li> URL: <%= @user.url %></li>
-          <li> Industry: <%= @user.industry %></li>
-          <li> Address: <%= @user.address %></li>
-        </ul>
-      </div>
+    <div class = "profile-button ml-4">
       <% if current_user.id == @user.id %>
       <% if current_user.role == 'startup' %>
         <div class="button_small">
-          <%= link_to "Request investment", new_user_funding_round_path(@user), style: "color: white; text-align: center;" %>
+          <%= link_to "Request Investment", new_user_funding_round_path(@user), style: "color: white; text-align: center;" %>
         </div>
         <div class="button_small">
           <%= link_to "Edit", edit_user_path(@user) %>
@@ -33,14 +25,22 @@
       <% end %>
     </div>
   </div>
-    <div>
-      <h2 style="margin: 30px 0px"><%= @user.name %></h2>
+  <div class="profile-text p-4">
+      <h2><%= @user.name %></h2>
       <p><%= @user.description %></p>
+      <div style="text-decoration: none">
+        <ul style="list-style-type: none; padding: 0px;">
+          <li><strong>Industry: </strong> <%= @user.industry %></li>
+          <li><strong>Website: </strong> <%= @user.industry %></li>
+          <li><strong>Address: </strong> <%= @user.address %></li>
+        </ul>
+      </div>
     </div>
   </div>
 
+<div class="mt-5">
   <% if @user.role == "startup" %>
-    <h3 style="text-align: left; padding: 20px; color: #F6AF42; border-bottom: 1px solid #F6AF42; padding-bottom: 5px;">Your founding rounds</h3>
+    <h3 style="text-align: left; padding: 20px; color: #F6AF42; border-bottom: 1px solid #F6AF42; padding-bottom: 5px;">Founding Rounds</h3>
     <% @funding_rounds.each do |funding_round| %>
       <div class="card mt-3 mb-5 ml-3 mr-3" style="max-width: 2000px;">
         <div class="row no-gutters d-flex align-items-center">
@@ -57,10 +57,15 @@
             </div>
           </div>
           <div class="col-md-3">
+          <% if funding_round.investments.length > 0 %>
             <div class="button">
-              <%=link_to "See Applications", user_funding_round_questions_path(@user, funding_round)%>
+              <%=link_to "See Applications (#{funding_round.investments.length})", user_funding_round_questions_path(@user, funding_round)%>
             </div>
-            <p><%= funding_round.investments.length  %> Investors applied.</p>
+            <% else %>
+            <div class="button-inactive">
+              <p>No Application</p>
+            </div>
+            <% end %>
         </div>
       </div>
       </div>
@@ -92,4 +97,5 @@
       </div>
     <% end %>
   <% end %>
+</div>
 
