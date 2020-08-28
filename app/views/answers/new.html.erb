@@ -1,29 +1,29 @@
-<h2>Application form</h2>
-<p><%= @funding_round.user.name %></p>
-<p><%= @funding_round.name %></p>
-<p><%= @funding_round.amount %></p>
+<h2 class="page-title">Application</h2>
 
-<% if @questions.empty? %>
-    <% if Investment.where("user_id = #{current_user.id} and funding_round_id = #{@funding_round.id}").empty? %>
+<h4 class="page-subtitle">Let the startup know why to pick you:</h4>
+<div class="container-centered">
+  <% if @questions.empty? %>
+      <% if Investment.where("user_id = #{current_user.id} and funding_round_id = #{@funding_round.id}").empty? %>
+        <div class="button">
+          <%= link_to "Interested", interested_user_funding_round_path(current_user.id, @funding_round), method: :post %>
+        </div>
+      <% else %>
+        <div class="button-inactive">
+          <p>Application done</p>
+        </div>
+      <% end %>
+  <% else %>  
+    <%= simple_form_for(@answer, method: :post, url: user_funding_round_investment_answers_path(current_user, @funding_round, @investment.id)) do |f| %>
+      <%= f.error_notification %>
+      <% @questions.each do |question| %>
+        <p><%= question.question %></p>
+        <div class="form-inputs container-md">
+          <%= f.input :answer, required: true, input_html: { name: "question-#{question.id}" } %>
+        </div>
+      <% end %>
       <div class="button">
-        <%= link_to "Interested", interested_user_funding_round_path(current_user.id, @funding_round), method: :post %>
-      </div>
-    <% else %>
-       <div class="button-inactive">
-        <p>Application done</p>
+        <%= f.button :submit, "Apply now" %>
       </div>
     <% end %>
-<% else %>  
-  <%= simple_form_for(@answer, method: :post, url: user_funding_round_investment_answers_path(current_user, @funding_round, @investment.id)) do |f| %>
-    <%= f.error_notification %>
-    <% @questions.each do |question| %>
-      <p><%= question.question %></p>
-      <div class="form-inputs container-small">
-        <%= f.input :answer, required: true, input_html: { name: "question-#{question.id}" } %>
-      </div>
-    <% end %>
-    <div class="button">
-      <%= f.button :submit, "Apply now" %>
-    </div>
   <% end %>
-<% end %>
+</div>
