@@ -6,7 +6,7 @@
   width: 250px;
 }
 
-@include media-breakpoint-between(xs, md) {
+@include media-breakpoint-down(xs) {
   .profile {
     display: flex;
     flex-direction: column;
@@ -15,7 +15,7 @@
   }
 }
 
-@include media-breakpoint-between(xs, md) {
+@include media-breakpoint-down(xs) {
   .profile-text {
   width: 250px;
   }
