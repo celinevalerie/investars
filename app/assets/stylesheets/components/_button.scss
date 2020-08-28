@@ -55,12 +55,14 @@
   color: white;
   background-color: #F6AF42;
   border-radius: 4px;
-  width: 170px;
-  min-height: 30px;
+  height: 50px;
   font-size: 14px;
   padding: 3px 0px 0px 0px;
   margin: 5px 0px 0px 0px;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .button a {
   font-size: 18px;
