@@ -10,14 +10,12 @@
     <div class="form-inputs">
       <%= f.input :question,
                     required: true %>
-    <div class="d-flex">
       <div class="button-md">
         <%= f.button :submit, "Add additional question" %>
       </div>
     <% end %>
     <div class="button-md">
       <%= link_to "Save Form", user_path(current_user)%>
-    </div>
     </div>
   </div>
   </div>
