@@ -13,7 +13,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: bold;
+  font-weight: lighter;
 }
 .button-z{
   color: white;
@@ -29,14 +29,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: bold;
+  font-weight: lighter;
   border: white
 }
 .button_small {
   color: white;
   background-color: #F6AF42;
   border-radius: 4px;
-  height: 50px;
+  min-width: 100px;
+  height: 30px;
   font-size: 14px;
   padding: 3px 0px 0px 0px;
   margin: 5px 0px 0px 0px;
@@ -44,6 +45,69 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  font-weight: lighter;
+}
+
+.button-inactive {
+  color: #F6AF42;
+  background-color: white;
+  border: 1px solid #F6AF42;
+  border-radius: 4px;
+  width: 180px;
+  height:50px;
+  font-size: 18px;
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: lighter;
+}
+
+.button-su {
+  color: white;
+  background-color: #F6AF42;
+  border-radius: 4px;
+  width: 100px;
+  height:50px;
+  font-size: 18px;
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: lighter;
+}
+
+.button-md {
+  color: white;
+  background-color: #F6AF42;
+  border-radius: 4px;
+  width: auto;
+  max-width: 250px;
+  height:50px;
+  font-size: 18px;
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: lighter;
+}
+
+.button-su a {
+  font-size: 18px;
+  color: white;
+}
+.button-su input {
+  font-size: 18px;
+  color: white;
 }
 .button a {
   font-size: 18px;
@@ -63,87 +127,74 @@
 .button-inactive p {
   margin-bottom: 0px;
 }
-.button-inactive {
-  color: #F6AF42;
-  background-color: white;
-  border: 2px solid #F6AF42;
-  border-radius: 4px;
-  width: 180px;
-  height:50px;
-  font-size: 18px;
-  padding: 12px;
-  display: flex;
-  justify-content: center;
-  margin: 20px auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-}
-
-.button-su {
-  color: white;
-  background-color: #F6AF42;
-  border-radius: 4px;
-  width: 100px;
-    height:50px;
-  font-size: 18px;
-  padding: 12px;
-  display: flex;
-  justify-content: center;
-  margin: 20px auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-}
-
-.button-md {
-  color: white;
-  background-color: #F6AF42;
-  border-radius: 4px;
-  width: auto;
-  max-width: 250px;
-  height:50px;
-  font-size: 18px;
-  padding: 12px;
-  display: flex;
-  justify-content: center;
-  margin: 20px auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-}
 
 .button-md a {
-  font-size: 18px;
   color: white;
-  font-weight: bold;
-  opacity: 0.8;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: lighter;
 }
 
 .button-md input {
-  font-size: 18px;
   color: white;
-  font-weight: bold;
-  opacity: 0.8;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: lighter;
 }
 
 .button-md a:hover {
-  text-decoration: none;
-  font-size: 18px;
   color: white;
-  font-weight: bold;
-  opacity: 1;
+  text-decoration: underline; 
+  font-size: 18px;
+  font-weight: lighter;
 }
 
 .button-md input:hover {
-  text-decoration: none;
-  font-size: 18px;
   color: white;
-  font-weight: bold;
-  opacity: 1;
+  text-decoration: underline; 
+  font-size: 18px;
+  font-weight: lighter;
+}
+
+.button input:hover {
+  color: white;
+  text-decoration: underline; 
+  font-size: 18px;
+  font-weight: lighter;
+}
+
+.button a:hover {
+  color: white;
+  text-decoration: underline; 
+  font-size: 18px;
+  font-weight: lighter;
+}
+
+.button-su input:hover {
+  color: white;
+  text-decoration: underline; 
+  font-size: 18px;
+  font-weight: lighter; 
+}
+
+.button-su a:hover {
+  color: white;
+  text-decoration: underline; 
+  font-size: 18px;
+  font-weight: lighter;
 }
 
 
+.button_small input:hover {
+  color: white;
+  text-decoration: underline; 
+  font-size: 18px;
+  font-weight: lighter;
+}
+
+.button_small a:hover {
+  color: white;
+  text-decoration: underline; 
+  font-size: 18px;
+  font-weight: lighter;
+}
