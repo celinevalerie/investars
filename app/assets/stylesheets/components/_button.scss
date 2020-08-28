@@ -2,7 +2,7 @@
   color: white;
   background-color: #F6AF42;
   border-radius: 4px;
-  width: 180px;
+  width: auto;
   height:50px;
   font-size: 18px;
   padding: 12px;
@@ -14,7 +14,23 @@
   justify-content: center;
   font-weight: bold;
 }
-
+.button-z{
+  color: white;
+  background-color: #F6AF42;
+  border-radius: 4px;
+  width: 180px;
+  height:40px;
+  font-size: 18px;
+  padding: 2px;
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border: white
+}
 .button_small {
   color: white;
   background-color: #F6AF42;
@@ -26,30 +42,24 @@
   margin: 5px 0px 0px 0px;
   text-align: center;
 }
-
 .button a {
   font-size: 18px;
   color: white;
 }
-
 .button_small a {
   font-size: 18px;
   color: white;
 }
-
 .button input {
   font-size: 18px;
   color: white;
 }
-
 .button p {
   margin-bottom: 0px;
 }
-
 .button-inactive p {
   margin-bottom: 0px;
 }
-
 .button-inactive {
   color: #F6AF42;
   background-color: white;
