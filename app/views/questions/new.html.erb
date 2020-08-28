@@ -6,8 +6,11 @@
       <%= f.input :question,
                     required: true %>
       <div class="button">
-        <%= f.button :submit, "Save Question" %>
+        <%= f.button :submit, "Add additional question" %>
       </div>
     </div>
   <% end %>
 
+  <div class="button">
+    <%= link_to "Save Form", user_path(current_user)%>
+  </div>

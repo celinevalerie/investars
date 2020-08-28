@@ -2,8 +2,10 @@
 <%= @funding_round.name %>
 
 
-<% @questions.each do |question|  %>
+<% @answers.each do |answer|  %>
+  <% if @investments_ids.include? answer.investment_id %>
   <ul>
-    <li><%= question.question %></li>
+    <li><%= answer.question.question %> - <%= answer.investment.user.name %>: <%= answer.answer %></li>
   </ul>
+  <% end %>
 <% end %>

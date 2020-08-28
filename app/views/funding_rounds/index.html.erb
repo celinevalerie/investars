@@ -17,7 +17,7 @@
     </div>
     <div class="col-md-3">
         <div class="button">
-          <%= link_to "Apply to Invest", new_user_funding_round_investment_answer_path(funding_round.user, funding_round, @investment ) %>
+          <%= link_to "Apply to Invest", new_user_funding_round_answer_path(funding_round.user, funding_round) %>
         </div>
         <div class="button">
           <%= link_to "Startup Profile", user_path(funding_round.user) %>
