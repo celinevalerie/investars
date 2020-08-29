@@ -1,6 +1,7 @@
 class QuestionsController < ApplicationController
   def new
     @question = Question.new
+    @questions = Question.where("funding_round_id = #{params[:funding_round_id]}")
   end
 
   def create

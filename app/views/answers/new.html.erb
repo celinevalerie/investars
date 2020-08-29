@@ -18,7 +18,7 @@
       <% @questions.each do |question| %>
         <p><%= question.question %></p>
         <div class="form-inputs container-md">
-          <%= f.input :answer, required: true, input_html: { name: "question-#{question.id}" } %>
+          <%= f.input :answer, required: true, label: false, input_html: { name: "question-#{question.id}" } %>
         </div>
       <% end %>
       <div class="button">
